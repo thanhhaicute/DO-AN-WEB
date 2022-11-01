@@ -1,0 +1,126 @@
+﻿@model List<DOANCUOIKY.Models.Product>
+@{
+    ViewBag.Title = "Quản lý sản phẩm";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<form action="/admin/create" method="post" enctype="multipart/form-data">
+    <div class="container text-center mt-5">
+        <div class="row row-cols-3">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="NameProduct" class="form-label">Tên sản phẩm</label>
+                    <input type="text" class="form-control" id="NameProduct" name="NameProduct" placeholder="Nhập tên sản phẩm">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="Price" class="form-label">Giá sản phẩm</label>
+                    <input type="text" class="form-control" id="Price" name="Price" placeholder="Nhập giá sản phẩm">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="Amount" class="form-label">Số lượng</label>
+                    <input type="number" class="form-control" id="Amount" name="Amount" placeholder="Nhập số lượng sản phẩm">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="Time" class="form-label">Thơi gian nhập hàng</label>
+                    <input type="date" class="form-control" id="Time" name="Time" placeholder="Nhập ngày tháng năm">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="MaSP" class="form-label">Mã sản phẩm</label>
+                    <input type="text" class="form-control" id="MaSP" name="MaSP" placeholder="Nhập mã sản phẩm">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="BrandID" class="form-label">Lựa chọn thương hiệu</label>
+                    <select class="form-select"
+                            id="BrandID"
+                            name="BrandID">
+                        @foreach (var brand in ViewBag.Brand)
+                        {
+                            <option value="@brand.BrandID">@brand.BrandName</option>
+
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="Sex" class="form-label">Giới tính cho quần áo</label>
+                    <select class="form-select"
+                            id="Sex"
+                            name="Sex">
+                        >
+                        <option value="1">Dành cho nam</option>
+                        <option value="2">Dành cho nữ</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="Type" class="form-label">Loại quần áo</label>
+                    <select class="form-select"
+                            id="Type"
+                            name="Type">
+                        <option value="1">ÁO SƠ MI</option>
+                        <option value="2">ÁO POLO</option>
+                        <option value="3">ÁO NỈ</option>
+                        <option value="4">QUẦN</option>
+                        <option value="5">GIÀY</option>
+                        <option value="6">BALO</option>
+                        <option value="7">ÁO PHÔNG</option>
+                        <option value="8">ÁO LEN</option>
+                        <option value="9">ÁO KHOÁC</option>
+                        <option value="10">QUẦN SORT</option>
+                        <option value="11">TÚI-VÍ</option>
+                        <option value="12">VALLI KÉO</option>
+                        <option value="13">PHỤ KIỆN</option>
+                        <option value="14">VÁY</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                        <label>Upload hình 1</label>
+                        <input type="file" class="form-control" id="Image1" name="Image1" accept="image/*">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label>Upload hình 2</label>
+                    <input type="file" class="form-control" id="Image2" name="Image2" accept="image/*">
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label>Upload hình 3</label>
+                    <input type="file" class="form-control" id="Image3" name="Image3" accept="image/*">
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="Describe" class="form-label">Miêu tả sản phẩm</label>
+                    <textarea class="form-control" id="Describe" name="Describe" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center mt-5">
+
+        <button type="submit" class="btn btn-success">Thêm sản phẩm</button>
+    </div>
+
+</form>
+
+
+
+

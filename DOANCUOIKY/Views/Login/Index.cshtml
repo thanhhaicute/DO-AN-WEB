@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Đăng nhập tài khoản";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<div class="container text-center" style="height:60vh">
+    <div class="row ">
+        <div class="col-8 d-flex flex-column align-items-center mt-4  ">
+            <form action="/login/login" method="post" class="w-100">
+                <h3 class="mt-4 ">ĐĂNG NHẬP THÀNH VIÊN</h3>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Tài khoản</span>
+                    <input type="text" class="form-control" placeholder="Nhập tài khoản của bạn" aria-label="Username" aria-describedby="basic-addon1" id="username" name="username">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Mật khẩu</span>
+                    <input type="text" class="form-control" placeholder="Nhập mật khẩu của bạn" aria-label="Username" aria-describedby="basic-addon1" id="passwword" name="passwword">
+                </div>
+
+                <button type="button" class="btn btn-secondary w-100">Đăng nhập</button>
+            </form>
+            
+
+
+        </div>
+        <div class="col-4 mt-4">
+                <h3 class="mt-4 ">NẾU CHƯA CÓ TÀI KHOẢN</h3>    
+                    <a href="~/Resigter/Index" class="btn btn-secondary w-100">Đăng ký</a>
+        </div>
+    </div>
+</div>

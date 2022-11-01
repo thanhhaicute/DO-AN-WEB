@@ -1,0 +1,173 @@
+﻿@model DOANCUOIKY.Models.Product
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+<nav aria-label="breadcrumb" style="width: 100%; background-color: #f5f5f5; height:fit-content;padding:10px">
+    <ol class="breadcrumb container">
+        <li class="breadcrumb-item"><a style="text-decoration:none;color:black" href="~/Home/Index">Trang chủ</a></li>
+        <li class="breadcrumb-item"><a style="text-decoration:none;color:black" href="~/Products/Index">Thời trang cao cấp</a></li>
+        <li class="breadcrumb-item active" style="color: red" aria-current="page">@Model.NameProduct</li>
+    </ol>
+</nav>
+
+<div class="container text-start" style="margin-top:50px">
+    <div class="row" >
+        <div class="col" style="width:27% ;margin-left:-50px">
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="~/Content/Images/products/@Model.Image1" class="card-img-top" alt="..." style="width: 70%;">
+
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/Content/Images/products/@Model.Image2" class="card-img-top" alt="..." style="width: 70%;">
+
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="~/Content/Images/products/@Model.Image3" class="card-img-top" alt="..." style="width: 70%;">
+
+                    </div>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <!-- Swiper JS -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+            <!-- Initialize Swiper -->
+            <script>
+                var swiper = new Swiper(".mySwiper", {
+                    cssMode: true,
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                    },
+                    mousewheel: true,
+                    keyboard: true,
+                });
+            </script>
+        </div>
+        <div class="col m-lg-2">
+            <h2>@Model.NameProduct</h2>
+            <p style="font-size: 15px; font-family: fontThanhHai; font-weight: 300;color:black">
+                Thương hiệu: <span style="font-size: 15px; font-family: fontThanhHai; font-weight: 300;color:red">@Model.Brand.BrandName</span> | Trạng thái: <span style="font-size: 15px; font-family: fontThanhHai; font-weight: 300;color:red">
+                    @if (Model.Amount > 0)
+                    {
+
+                        <span>Còn hàng</span>}
+                    else
+                    { <span>Hết hàng</span>}
+            </span>
+            | Mã SP: <span style="font-size: 15px; font-family: fontThanhHai; font-weight: 300;color:red">@Model.MaSP</span>
+        </p>
+        <p style="font-size: 15px; font-family: fontThanhHai; font-weight: 300;color:black">
+            Thời gian nhập: <span style="font-size: 15px; font-family: fontThanhHai; font-weight: 300;color:red">@Model.Time.ToLongDateString()</span> | Dành cho: <span style="font-size: 15px; font-family: fontThanhHai; font-weight: 300;color:red">
+                @if (Model.Sex == 1)
+                {
+                    <span>Nam</span>}
+                else
+                { <span>Nữ</span>}
+            </span>
+            | Loại: <span style="font-size: 15px; font-family: fontThanhHai; font-weight: 300;color:red">
+                @if (Model.Type == 1)
+                {
+                    <span>Áo sơ mi</span>
+                }
+                @if (Model.Type == 2)
+                {
+                    <span>Áo polo</span>
+                }
+                @if (Model.Type == 3)
+                {
+                    <span>Áo nỉ</span>
+                }
+                @if (Model.Type == 4)
+                {
+                    <span>Quần</span>
+                }
+                @if (Model.Type == 5)
+                {
+                    <span>Giày</span>
+                }
+                @if (Model.Type == 6)
+                {
+                    <span>Balo</span>
+                }
+                @if (Model.Type == 7)
+                {
+                    <span>Áo phông</span>
+                }
+                @if (Model.Type == 8)
+                {
+                    <span>Áo len</span>
+                }
+                @if (Model.Type == 9)
+                {
+                    <span>Áo khoác</span>
+                }
+                @if (Model.Type == 10)
+                {
+                    <span>Quần sort</span>
+                }
+                @if (Model.Type == 11)
+                {
+                    <span>Túi ví</span>
+                }
+                @if (Model.Type == 12)
+                {
+                    <span>Vali  kéo</span>
+                }
+                @if (Model.Type == 13)
+                {
+                    <span>Phụ kiện</span>
+                }
+                @if (Model.Type == 14)
+                {
+                    <span>Váy</span>
+                }
+            </span>
+
+        </p>
+        <h3 style="font-size: 19px; font-family: fontThanhHai; font-weight: 700;color:red">@Model.Price.Value.ToString("C") </h3>
+
+        <span>@Model.Describe</span>
+
+        <header class="mt-3" style="color: gray">SIZE</header>
+        <div>
+            <select class="form-select mt-4 w-25">
+                <option value="1">S</option>
+                <option value="2">M</option>
+                <option value="3">L</option>
+                <option value="3">XL</option>
+                <option value="3">XXL</option>
+            </select>
+        </div>
+        <br />
+
+        <div class="input-group mt-3 w-25">
+            <span class="input-group-text" id="basic-addon1">Số lượng</span>
+            <input type="number" class="form-control" placeholder="">
+        </div>
+        <br />
+
+        <button class="btn btn-secondary">Thêm vào giỏ hàng</button>
+        <br />
+        <br />
+        <button class="btn btn-success">
+            <a class="text-decoration-none " style="color: white" href="@Url.Action("Index","Products")"> Quay lại</a>
+
+        </button>
+
+
+        </div>
+    </div>
+</div>
